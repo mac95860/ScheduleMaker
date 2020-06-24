@@ -1,38 +1,47 @@
 var date = moment().format('MMMM Do YYYY');
-var text = $(".description").val();
-var saveButton = $(this).attr("class", "saveBtn");
 
-$(".description").addClass("present");
 $("#currentDay").text(date);
-
-
-
 
 $(".saveBtn").on("click", function (event) {
     event.preventDefault();
+    var text = $(".description").val();
+    var saved = $("button").parent().siblings(".description").attr("id");
+    localStorage.setItem(saved, text);
+});
+
+$("#9").val(localStorage.getItem("9"));
+$("#10").val(localStorage.getItem("10"));
+$("#11").val(localStorage.getItem("11"));
+$("#12").val(localStorage.getItem("12"));
+$("#13").val(localStorage.getItem("13"));
+$("#14").val(localStorage.getItem("14"));
+$("#15").val(localStorage.getItem("15"));
+$("#16").val(localStorage.getItem("16"));
+$("#17").val(localStorage.getItem("17"));
+
+function changeColors() {
+    var currentHour = moment().hour();
     
-    var rowEl = $(this).parent().parent();
-    var descriptionEl = rowEl.find('.description');
-    var hourEl = rowEl.find(".hour");
-    var text = descriptionEl.val();
-    var hour = hourEl.text();
-    
-    console.log(text);
-    localStorage.setItem(text, "text");
+    $(".description").each(function () {
+        var hour = parseInt($(this).attr("id"));
+        if (hour < currentHour) {
+
+            $(this).addClass("past");
+
+        } else if (hour === currentHour) {
+
+            $(this).removeClass("past").addClass("present");
+
+        } else {
+            $(this).removeClass("past").removeClass("present").addClass("future");
+        }
+
+    });
+}
+
+changeColors();
 
 
-
-    if (moment().isAfter(moment().subtract(1, 'h'))) {
-
-        descriptionEl.removeClass("present").addClass("past");
-
-    } else {
-
-        descriptionEl.removeClass("present").addClass("future");
-
-    }
-
-})
 
 
 
