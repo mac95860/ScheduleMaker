@@ -1,5 +1,29 @@
-Definetly got lost on this one. 
+# Schedule Maker
 
-I thought I would be using an if/else statement I would get the rows to highlight to the correct color based on 
-whether the event took place past/present/future. The problem I was haveing is that the if part of the if/else 
-statement is always true. I don't understand how to get the future result.
+## Description
+
+A simple day planner app that allows users to plan out their day by the hour. The app will color code events on the planner based on past, present, and future.
+
+## Technologies used
+
+- Bootstrap
+- Javascript
+- Moment.js
+- CSS
+- HTML
+
+## Features
+
+- Users enter a task to complete for a time slot and can save the task to local storage.
+
+- Using Moment.js, the app will turn a time slot a particular color depending on whether the task has happened, is being done now, or still needs to be done
+
+## Contributors
+
+Michael Cervantes
+
+## Check out the app:
+
+https://mac95860.github.io/ScheduleMaker/
+
+![ScheduleMaker](/images/planner.JPG)
